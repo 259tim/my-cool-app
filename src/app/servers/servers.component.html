@@ -1,2 +1,34 @@
-<p>servers works!</p>
-<app-server></app-server>
+<h2>servers work, view the status of your servers below!</h2>
+
+<!-- <input
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"
+> -->
+<!-- Two way binding with ngModel lets you save things typed in html to typescript code and vice-versa -->
+<input
+type="text"
+class="form-control"
+[(ngModel)]="serverName">
+
+<p>{{serverName}}</p>
+
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()"
+>Add server</button>
+
+<!-- Here we have an if/else statement in angular -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated; else noserver">Server name created was {{serverName}} </p>
+<!-- here we have the else in an ng-template, referenced by noserver-->
+<ng-template #noserver >
+    <p>
+        No server was created yet.
+    </p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+
+

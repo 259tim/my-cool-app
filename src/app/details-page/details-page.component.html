@@ -1,0 +1,14 @@
+<button (click)="toggleDetails()">Display Details</button>
+
+<p>These are the important details:</p>
+    <div *ngIf="displayDetails">Your mum.
+        <div *ngFor="let date of dateArray; let i = index"> 
+            <div 
+            
+            [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+            [ngClass]="{'white-text': i >= 5}"
+            >{{date}} number {{date}} </div>    
+        </div>
+    </div>
+
+    

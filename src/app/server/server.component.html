@@ -1,1 +1,9 @@
-<p>Hello</p>
+<p>Hello, the status of your server is as follows:</p>
+<!-- ngstyle lets you update styles. This one get the colour from the typescript function getColor 
+    ngclass lets you dynamically update classes, in this case the element gets the class 'online' when serverstatus is online
+    this can then be used to change what it looks like or where it goes 
+-->
+<p
+[ngClass]="{online: serverStatus === 'online'}"
+[ngStyle]="{backgroundColor: getColor()}"
+>{{ 'Server' }} with ID {{ serverId }} is currently {{ serverStatus }} </p>
